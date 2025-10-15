@@ -1,0 +1,87 @@
+body {
+  background: #f5f6fa;
+  color: #222;
+  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+  margin: 0;
+  min-height: 100vh;
+}
+
+.todo-container {
+  background: #fff;
+  max-width: 520px;
+  margin: 40px auto;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px #0002;
+  padding: 32px 28px 24px 28px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+  color: #222;
+}
+
+input[type='text'],
+input[type='search'] {
+  background: #f5f6fa;
+  color: #222;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 8px 12px;
+  margin-bottom: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s;
+}
+input[type='text']:focus,
+input[type='search']:focus {
+  border-color: #4f8cff;
+}
+
+button {
+  background: #4f8cff;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 18px;
+  font-size: 1rem;
+  margin-right: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+button:hover {
+  background: #357ae8;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+li {
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  padding: 14px 0 10px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+li:last-child {
+  border-bottom: none;
+}
+
+.edit-form {
+  background: #f5f6fa;
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin: 8px 0;
+  box-shadow: 0 2px 8px #0001;
+}
+
+.todo-actions {
+  display: flex;
+  gap: 8px;
+}
+/* You can add global styles to this file, and also import other style files */

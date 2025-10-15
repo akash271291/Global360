@@ -1,0 +1,52 @@
+<div class="task-container">
+  <h1 class="app-title">🗂️ Todo List</h1>
+
+  <!-- Search Bar -->
+  <section class="search-bar">
+    <input type="text" [(ngModel)]="searchQuery" placeholder="Search by title or description..." class="input-field" />
+    <button type="button" (click)="findTasks()" class="btn primary-btn">Search</button>
+  </section>
+
+  <!-- Add New Task -->
+  <section class="add-task">
+    <input type="text" [(ngModel)]="newTaskTitle" placeholder="Task title" class="input-field" />
+    <input type="text" [(ngModel)]="newTaskDescription" placeholder="Task description" class="input-field wide" />
+    <button type="button" (click)="createNewTask()" class="btn success-btn">Add Task</button>
+  </section>
+
+  <!-- Task List -->
+  <section *ngIf="taskList.length; else emptyState" class="task-list">
+    <ul>
+      <li *ngFor="let task of taskList" class="task-card">
+        <!-- View Mode -->
+        <ng-container *ngIf="editModeId !== task.id; else editMode">
+          <div class="task-details">
+            <h3 class="task-title">{{ task.title }}</h3>
+            <p class="task-desc">{{ task.description }}</p>
+          </div>
+          <div class="action-buttons">
+            <button type="button" (click)="onEdit(task)" class="btn warn-btn">Edit</button>
+            <button type="button" (click)="onDelete(task.id)" class="btn danger-btn">Delete</button>
+          </div>
+        </ng-container>
+
+        <!-- Edit Mode -->
+        <ng-template #editMode>
+          <div class="edit-box">
+            <input type="text" [(ngModel)]="editTitle" placeholder="Edit title" class="input-field" />
+            <input type="text" [(ngModel)]="editDescription" placeholder="Edit description" class="input-field wide" />
+            <button type="button" (click)="updateTask()" class="btn primary-btn">Save</button>
+            <button type="button" (click)="cancelEdit()" class="btn secondary-btn">Cancel</button>
+          </div>
+        </ng-template>
+      </li>
+    </ul>
+  </section>
+
+  <!-- Empty State -->
+  <ng-template #emptyState>
+    <div class="empty-state">
+      <p>No tasks found. Try adding a new one!</p>
+    </div>
+  </ng-template>
+</div>
